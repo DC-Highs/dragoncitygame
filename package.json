@@ -1,0 +1,49 @@
+{
+  "name": "@dchighs/dragoncitygame",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DC-Highs/dragoncitygame.git"
+  },
+  "homepage": "https://github.com/DC-Highs/dragoncitygame#readme",
+  "bugs": {
+    "url": "https://github.com/DC-Highs/dragoncitygame/issues"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/*",
+    "!/**/__tests__"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx ./src/index.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "vitest",
+    "test:cov": "vitest run --coverage"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "marcuth"
+  ],
+  "author": "Marcuth",
+  "license": "MIT",
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "@types/node": "^26.4.1",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}
