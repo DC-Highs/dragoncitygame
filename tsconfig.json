@@ -2,9 +2,11 @@
   "compilerOptions": {
     "target": "es2019",
     "lib": [
-      "ES2015"
+      "ES2022",
+      "DOM"
     ],
     "module": "NodeNext",
+    "types": ["node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
