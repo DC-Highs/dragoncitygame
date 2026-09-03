@@ -14,8 +14,7 @@ export class StoreService {
 
     async getProducts(): Promise<StoreProduct[]> {
         const response = await this.client.fetch({ url: this.baseUrl })
-        const parser = response.asHtmlParser()
-        const nextDataMatch = parser.source.match(regexHelper.nextDataScriptRegex)
+        const nextDataMatch = response.text.match(regexHelper.nextDataScriptRegex)
 
         if (!nextDataMatch) {
             throw new StoreNextDataNotFoundError()

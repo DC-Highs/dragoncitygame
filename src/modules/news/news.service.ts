@@ -35,8 +35,7 @@ export class NewsService {
         const pageUrl = `${this.baseUrl}/dragon-city-news?${searchParams.toString()}`
 
         const response = await this.client.fetch({ url: pageUrl })
-        const parser = response.asHtmlParser()
-        const nextDataMatch = parser.source.match(regexHelper.nextDataScriptRegex)
+        const nextDataMatch = response.text.match(regexHelper.nextDataScriptRegex)
 
         if (!nextDataMatch) {
             throw new NextDataScriptNotFoundError()
