@@ -1,16 +1,16 @@
 # @dchighs/dragoncitygame
 
-SDK / Scraper oficial para integração com a plataforma e loja de **Dragon City** (`dragoncitygame.com`).
+Official SDK / Scraper for integration with the **Dragon City** official website and store (`dragoncitygame.com`).
 
 ---
 
-## 📦 Instalação
+## 📦 Installation
 
 ```bash
 npm install @dchighs/dragoncitygame
 ```
 
-ou com yarn / pnpm / bun:
+or using yarn / pnpm / bun:
 
 ```bash
 yarn add @dchighs/dragoncitygame
@@ -20,11 +20,11 @@ bun add @dchighs/dragoncitygame
 
 ---
 
-## 🚀 Como Usar
+## 🚀 Usage
 
-### 1. Inicializando a SDK
+### 1. Initializing the SDK
 
-Você pode inicializar a SDK definindo o idioma desejado através do enum `LanguagePrefix`:
+You can initialize the SDK by specifying the desired language via the `LanguagePrefix` enum:
 
 ```typescript
 import { DragonCityGame, LanguagePrefix } from "@dchighs/dragoncitygame"
@@ -34,7 +34,7 @@ const game = new DragonCityGame({
 })
 ```
 
-Idiomas suportados (`LanguagePrefix`):
+Supported languages (`LanguagePrefix`):
 - `LanguagePrefix.English` (`""`)
 - `LanguagePrefix.BrazilianPortuguese` (`"/pt-BR"`)
 - `LanguagePrefix.Spanish` (`"/es"`)
@@ -48,11 +48,11 @@ Idiomas suportados (`LanguagePrefix`):
 
 ---
 
-## 📰 Módulo de Notícias (`news`)
+## 📰 News Module (`news`)
 
-### Obter Notícias Paginadas (`getManyArticles`)
+### Get Paginated News (`getManyArticles`)
 
-Retorna uma lista de artigos com metadados de paginação.
+Returns a list of article previews along with pagination metadata.
 
 ```typescript
 const { meta, data: articles } = await game.news.getManyArticles({ page: 1 })
@@ -75,9 +75,9 @@ console.log(articles[0])
 // }
 ```
 
-### Obter Notícia Individual em Markdown (`getOneArticle`)
+### Get Single Article in Markdown (`getOneArticle`)
 
-Obtém o conteúdo completo de um artigo pelo `slug`, onde o corpo (`body`) é convertido de Contentful Rich Text para **Markdown**.
+Fetches the complete content of an article by its `slug`, converting the body from Contentful Rich Text to **Markdown**.
 
 ```typescript
 const article = await game.news.getOneArticle("upcoming-events-september-2026")
@@ -92,23 +92,23 @@ console.log(article)
 // }
 ```
 
-### Obter o Último Artigo de Próximos Eventos (`getLastUpcomingEventsArticle`)
+### Get Latest Upcoming Events Article (`getLastUpcomingEventsArticle`)
 
-Busca automaticamente o último artigo de eventos futuros em qualquer idioma configurado, percorrendo as páginas até encontrar.
+Automatically searches for the latest upcoming events calendar article across any configured language, traversing pages until found.
 
 ```typescript
 const lastEventArticle = await game.news.getLastUpcomingEventsArticle()
 
-console.log("Último calendário de eventos:", lastEventArticle.title)
+console.log("Latest events calendar:", lastEventArticle.title)
 ```
 
 ---
 
-## 🛒 Módulo da Loja (`store`)
+## 🛒 Store Module (`store`)
 
-### Obter Produtos da Loja (`getProducts`)
+### Get Store Products (`getProducts`)
 
-Retorna a lista de produtos disponíveis na loja oficial do jogo.
+Returns the list of available products from the official webstore.
 
 ```typescript
 const products = await game.store.getProducts()
@@ -138,9 +138,9 @@ console.log(products[0])
 
 ---
 
-## ⚠️ Tratamento de Erros
+## ⚠️ Error Handling
 
-O pacote possui classes de erro customizadas que estendem erros específicos de cada módulo:
+The package provides custom error classes for module-specific error handling:
 
 ```typescript
 import {
@@ -152,16 +152,16 @@ import {
 } from "@dchighs/dragoncitygame"
 
 try {
-    const article = await game.news.getOneArticle("slug-invalido")
+    const article = await game.news.getOneArticle("invalid-slug")
 } catch (error) {
     if (error instanceof ArticleNotFoundError) {
-        console.error("Artigo não encontrado!")
+        console.error("Article not found!")
     }
 }
 ```
 
 ---
 
-## 📜 Licença
+## 📜 License
 
-Distribuído sob a licença [MIT](./LICENSE).
+Distributed under the [MIT](./LICENSE) License.
