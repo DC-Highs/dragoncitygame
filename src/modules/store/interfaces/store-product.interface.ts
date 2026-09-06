@@ -1,8 +1,16 @@
 import { FetchClient } from "@xcrap/core"
+import { PuppeteerClient, PuppeteerClientOptions } from "@xcrap/puppeteer-client"
+
+import { StoreCookie, StoreCookiesChangeListener } from "./store-automation.interface"
 
 export interface StoreServiceOptions {
     baseUrl: string
     client: FetchClient
+    cookies?: StoreCookie[] | string
+    puppeteerClient?: PuppeteerClient
+    puppeteerClientOptions?: PuppeteerClientOptions
+    onCookiesChange?: StoreCookiesChangeListener
+    autoRefreshToken?: boolean
 }
 
 export interface StoreProductDetail {
