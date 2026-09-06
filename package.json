@@ -48,6 +48,8 @@
   },
   "dependencies": {
     "@xcrap/core": "^0.2.3",
-    "@xcrap/extractor": "^0.3.2"
+    "@xcrap/extractor": "^0.3.2",
+    "@xcrap/puppeteer-client": "^0.1.0",
+    "puppeteer": "^25.10.0"
   }
 }
