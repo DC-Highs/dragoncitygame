@@ -44,7 +44,7 @@
     "prettier": "^3.9.6",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   },
   "dependencies": {
     "@xcrap/core": "^0.2.3",
